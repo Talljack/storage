@@ -10,7 +10,7 @@ function deserialize(val: any): string | undefined {
   }
 }
 
-function serialize(val: string) {
+function serialize(val) {
   return JSON.stringify(val);
 }
 
