@@ -1,0 +1,62 @@
+{
+  "name": "better-storage",
+  "version": "0.1.0",
+  "description": "a storage lib which support sessionStorage and localStorage with the same api",
+  "module": "dist/storage.esm.js",
+  "main": "dist/storage.js",
+  "scripts": {
+    "dev": "vite",
+    "web": "vite build --mode web",
+    "lint": "eslint --quiet --no-error-on-unmatched-pattern --fix \"src/**/*.{ts,js,vue,tsx}\"",
+    "preinstall": "node ./scripts/checkYarn.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talljack/storage.git"
+  },
+  "keywords": [
+    "storage",
+    "vue3",
+    "hooks"
+  ],
+  "author": "Talljack <1442770751@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Talljack/storage/issues"
+  },
+  "homepage": "https://github.com/Talljack/storage#readme",
+  "dependencies": {
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vue": "3.1.1"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
+    "@vue/compiler-sfc": "^3.1.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.10.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "rollup": "^2.51.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-watch": "^4.3.1",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ]
+  }
+}
