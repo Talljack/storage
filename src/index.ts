@@ -1,3 +1,3 @@
-import store from "./storage";
+import store from "./storage/index.ts";
 
 export default store;

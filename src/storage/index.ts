@@ -1,4 +1,4 @@
-import { StorageType, StorageItem } from "./type";
+import { StorageType, StorageItem } from "./type.ts";
 function deserialize(val: any): string | undefined {
   if (typeof val !== "string") {
     return undefined;
@@ -74,7 +74,7 @@ export const getStorageKey = (
 };
 
 export const getStorageKeyValue = (type: StorageType): StorageItem => {
-  let res = {};
+  const res = {};
   const len = getStorageLength(type);
   for (let i = 0; i < len; i++) {
     const key = getStorageKey(type, i);

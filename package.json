@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "web": "vite build --mode web",
+    "build": "node build/build.js",
     "lint": "eslint --quiet --no-error-on-unmatched-pattern --fix \"src/**/*.{ts,js,vue,tsx}\"",
     "preinstall": "node ./scripts/checkYarn.js"
   },
@@ -26,11 +27,21 @@
   },
   "homepage": "https://github.com/Talljack/storage#readme",
   "dependencies": {
+    "@types/node": "^15.12.2",
     "typescript": "^4.3.2",
     "vite": "^2.3.7",
     "vue": "3.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-eslint": "^8.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-replace": "^2.3.1",
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
@@ -41,11 +52,15 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.10.0",
+    "fs-extra": "^10.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
     "rollup": "^2.51.1",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "rollup-watch": "^4.3.1",
     "yorkie": "^2.0.0"
   },
