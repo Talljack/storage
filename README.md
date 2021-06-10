@@ -3,7 +3,7 @@ Typescript support a storage lib which sessionStorage and localStorage with the 
 
 ## 🦄 Usage
 ```javascript
-import storage from 'better-storage'
+import storage from '@caoyugang/better-storage'
 
  storage.setItem('sessionStorage', key, value) 
  
