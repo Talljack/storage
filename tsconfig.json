@@ -1,47 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es5",
+    "module": "es2015",
+    "declaration": true,
+    "outDir": "./dist/",
+    "resolveJsonModule": true,
     "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
+    "sourceMap": false,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "rootDir": "src",
-    "noImplicitAny": false,
-    "resolveJsonModule": true,
-    "types": [
-      "webpack-env",
-      "vite/client"
-    ],
-    "typeRoots": ["types"],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators":true,
+    "lib": ["es6", "dom"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "test/**/*.ts",
-    "src/**/*.d.ts",
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "exclude": ["dist"]
 }

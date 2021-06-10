@@ -4,10 +4,13 @@
   "description": "a storage lib which support sessionStorage and localStorage with the same api",
   "module": "dist/storage.esm.js",
   "main": "dist/storage.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "web": "vite build --mode web",
-    "build": "node build/build.js",
+    "build": "rollup -c rollup.config.ts",
     "lint": "eslint --quiet --no-error-on-unmatched-pattern --fix \"src/**/*.{ts,js,vue,tsx}\"",
     "preinstall": "node ./scripts/checkYarn.js"
   },
@@ -58,11 +61,15 @@
     "prettier": "^2.3.1",
     "rollup": "^2.51.1",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-watch": "^4.3.1",
+    "tslib": "^2.2.0",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
