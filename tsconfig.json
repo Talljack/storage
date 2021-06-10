@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "rootDir": "src",
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "types": [
@@ -37,6 +38,7 @@
     "tests/**/*.tsx",
     "test/**/*.ts",
     "src/**/*.d.ts",
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -12,6 +12,8 @@ const cjs =  require('@rollup/plugin-commonjs')
 const replace = require('@rollup/plugin-replace')
 // eslint相关的插件
 const eslint = require('@rollup/plugin-eslint')
+
+const tsPlugin = require('@rollup/plugin-typescript')
 const version = process.env.VERSION || require('../package.json').version
 const path = require('path')
 const banner =
@@ -48,6 +50,7 @@ function genConfig (opts) {
       input: opts.input,
     },
     plugins: [
+      tsPlugin(),
       nodeResolve({
         extensions,
         modulesOnly: true,

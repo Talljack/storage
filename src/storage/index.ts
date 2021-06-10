@@ -1,4 +1,4 @@
-import { StorageType, StorageItem } from "./type.ts";
+import { StorageType, StorageItem } from "./type";
 function deserialize(val: any): string | undefined {
   if (typeof val !== "string") {
     return undefined;
