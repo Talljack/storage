@@ -10,7 +10,7 @@ function deserialize(val: any): string | undefined {
   }
 }
 
-function serialize(val) {
+function serialize(val: any) {
   return JSON.stringify(val);
 }
 
@@ -74,13 +74,13 @@ export const getStorageKey = (
 };
 
 export const getStorageKeyValue = (type: StorageType): StorageItem => {
-  const res = {};
+  const res: { [x: string]: string } = {};
   const len = getStorageLength(type);
   for (let i = 0; i < len; i++) {
     const key = getStorageKey(type, i);
     if (key) {
       const value = getItem(type, key);
-      res[key] = value;
+      res[key] = value as string;
     }
   }
   return res;

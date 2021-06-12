@@ -1,23 +1,32 @@
 {
   "name": "@caoyugang/better-storage",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "a storage lib which support sessionStorage and localStorage with the same api",
-  "module": "dist/storage.esm.js",
-  "main": "dist/storage.js",
-  "files": [
-    "dist"
-  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
     "dev": "vite",
     "web": "vite build --mode web",
-    "build": "rollup -c rollup.config.ts",
+    "build": "npm run clean && tsc -b --force tsconfig.esm.json && node scripts/pre-build/pre-cjs-build.js && tsc -b --force tsconfig.cjs.json && node scripts/post-build",
+    "clean": "rimraf site lib es",
+    "release": "npm run build && npm publish --access=public",
     "lint": "eslint --quiet --no-error-on-unmatched-pattern --fix \"src/**/*.{ts,js,vue,tsx}\"",
-    "preinstall": "node ./scripts/checkYarn.js"
+    "lint:type": "tsc -b --force tsconfig.esm.json",
+    "lint:code": "eslint --fix \"{src,build,scripts,demo}/**/*.{ts,tsx,js,vue,md}\"",
+    "format": "npm run format:code && npm run format:md",
+    "format:code": "prettier --write \"(src|demo)/**/*.(vue|js)\"",
+    "format:md": "prettier --write --parser markdown --prose-wrap never \"(src|demo)/**/*.md\"",
+    "gen-version": "node scripts/gen-version"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Talljack/storage.git"
   },
+  "files": [
+    "es",
+    "lib",
+    "README.md"
+  ],
   "keywords": [
     "storage",
     "vue3",
@@ -59,6 +68,7 @@
     "fs-extra": "^10.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
+    "rimraf": "^3.0.2",
     "rollup": "^2.51.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -77,9 +87,28 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "npm run lint",
-      "git add"
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.tsx": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.vue": [
+      "prettier --parser=vue --write",
+      "eslint --fix"
+    ],
+    "*.css": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write --parser markdown --prose-wrap never",
+      "eslint --fix"
     ]
   }
 }

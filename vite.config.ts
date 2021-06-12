@@ -1,8 +1,9 @@
-import path from "path";
+const path = require("path");
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 module.exports = defineConfig({
+  root: __dirname,
   resolve: {
     // 导入别名 和tsconfig.json需要同步
     alias: {
