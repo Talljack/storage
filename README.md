@@ -1,14 +1,16 @@
 # storage
+
 Typescript support a storage lib which sessionStorage and localStorage with the same api and extend api
 
 ## 🦄 Usage
+
 ```javascript
 import storage from '@caoyugang/better-storage'
 
- storage.setItem('sessionStorage', key, value) 
- 
+ storage.setItem('sessionStorage', key, value)
+
  storage.getItem('localStorage', key)
- 
+
 in vue3
 setup () {
     const key = 'store'
@@ -28,11 +30,11 @@ setup () {
 ## 📦 Install
 
 ```bash
-npm i better-storage
+npm i @caoyugang/better-storage
 
 or
 
-yarn add better-storage
+yarn add @caoyugang/better-storage
 ```
 
 ## 🎁 api
@@ -64,6 +66,7 @@ get storage key by index
 getStorageKeyValue(type)
 get all the storages about key and value
 ```
+
 ## 📄 License
 
 [MIT License](https://github.com/Talljack/storage/blob/main/LICENSE) © 2021-PRESENT [caoyugang_1](https://github.com/Talljack)
