@@ -88,7 +88,7 @@ export const getStorageKeyValue = (type: StorageType): StorageItem => {
 
 interface Storage {
   getItem: (type: StorageType, key: string) => string | undefined;
-  setItem: (type: StorageType, key: string, value: string | null) => void;
+  setItem: (type: StorageType, key: string, value: any) => void;
   removeItem: (type: StorageType, key: string) => void;
   clear: (type: StorageType) => void;
   getStorageLength: (type: StorageType) => number;
