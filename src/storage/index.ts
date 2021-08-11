@@ -1,4 +1,4 @@
-import { StorageType, StorageItem } from "./type";
+import { StorageType, StorageItem, UserType } from "./type";
 function deserialize(val: any): string | undefined {
   if (typeof val !== "string") {
     return undefined;
@@ -14,14 +14,13 @@ function serialize(val: any) {
   return JSON.stringify(val);
 }
 
-export const getItem = (type: StorageType, key: string): string | undefined => {
+export const getItem = (type: StorageType, key: string): any | undefined => {
   if (type === "localStorage") {
     return deserialize(localStorage.getItem(key));
   } else {
     return deserialize(sessionStorage.getItem(key));
   }
 };
-
 export const setItem = (type: StorageType, key: string, value: any): void => {
   if (!value) {
     removeItem(type, key);
@@ -87,7 +86,7 @@ export const getStorageKeyValue = (type: StorageType): StorageItem => {
 };
 
 interface Storage {
-  getItem: (type: StorageType, key: string) => string | undefined;
+  getItem: (type: StorageType, key: string) => any | undefined;
   setItem: (type: StorageType, key: string, value: any) => void;
   removeItem: (type: StorageType, key: string) => void;
   clear: (type: StorageType) => void;
